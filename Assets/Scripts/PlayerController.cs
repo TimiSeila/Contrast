@@ -11,15 +11,17 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     private Rigidbody2D rb;
-    private bool isGrounded;
+    public bool isGrounded;
     private float groundCheckRadius = 0.1f;
-    private bool isJumping;
 
     public bool launched;
+
+    Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,12 +32,32 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        if (isGrounded)
+        {
+            animator.SetBool("isJumping", false);
+        }
+
+        if(rb.velocity.y != 0)
+        {
+            animator.SetBool("isJumping", true);
+        }
+
+        if(rb.velocity.x > 0f)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (rb.velocity.x < 0f)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void FixedUpdate()
     {
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 
     private void Jump()
