@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8654304269402306545}
   - component: {fileID: 8654304269402306544}
   - component: {fileID: 8654304269402306543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sawblade_Black
   m_TagString: Black
   m_Icon: {fileID: 0}

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public LayerMask groundLayer;
+    public LayerMask cannonLayer;
     public Transform groundCheck;
 
     private Rigidbody2D rb;
@@ -26,7 +27,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, cannonLayer))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
 
         if (isGrounded && Input.GetKeyDown(KeyCode.W))
         {
@@ -79,6 +88,14 @@ public class PlayerController : MonoBehaviour
             launched = true;
             yield return new WaitForSeconds(0.2f);
             launched = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            Debug.Log("die");
         }
     }
 }

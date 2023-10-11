@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4109864850134892308}
   - component: {fileID: 4109864850134892311}
   - component: {fileID: 4109864850134892314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sawblade_Grey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
