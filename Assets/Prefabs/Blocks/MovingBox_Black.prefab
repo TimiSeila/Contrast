@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1245899739474597787}
   - component: {fileID: 1245899739474597786}
   - component: {fileID: 4405283622070740807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovingBox_Black
   m_TagString: Black
   m_Icon: {fileID: 0}
