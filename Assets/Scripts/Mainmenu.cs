@@ -27,7 +27,7 @@ public class Mainmenu : MonoBehaviour
 
     public void SelectMap()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
     public void SelectMap2()

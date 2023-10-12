@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.layer == 8)
         {
-            Debug.Log("die");
+            SceneManager.LoadScene(7);
         }
     }
 }
