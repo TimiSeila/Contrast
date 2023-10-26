@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     public bool isGrounded;
-    private float groundCheckRadius = 0.1f;
+    private float groundCheckRadius = 0.2f;
 
     public bool launched;
 
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
         if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, cannonLayer))
         {
             isGrounded = true;

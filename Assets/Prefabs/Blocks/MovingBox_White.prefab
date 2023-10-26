@@ -108,6 +108,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0}
   startPosition: {x: 0, y: 0}
   temp: {x: 0, y: 0}
+  originalMaterial: {fileID: 0}
 --- !u!61 &-4699436323551627851
 BoxCollider2D:
   m_ObjectHideFlags: 0

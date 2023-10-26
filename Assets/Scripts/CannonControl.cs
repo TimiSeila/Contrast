@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CannonControl : MonoBehaviour
 {
@@ -30,6 +29,7 @@ public class CannonControl : MonoBehaviour
 
     private IEnumerator StartShooting()
     {
+        yield return new WaitForSeconds(3f);
         while (true)
         {
             foreach (GameObject obj in cannonList)
@@ -65,14 +65,14 @@ public class CannonControl : MonoBehaviour
                 }
             }
 
-                yield return new WaitForSeconds(5);
+                yield return new WaitForSeconds(3);
                 
             foreach(GameObject obj in cannonList)
             {
 
                 obj.GetComponent<Animator>().SetBool("isShooting", false);
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
             
 
         }
